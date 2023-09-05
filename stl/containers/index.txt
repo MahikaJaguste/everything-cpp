@@ -1,0 +1,21 @@
+Containers are pre-built data structures.
+
+Sequence containers are 
+1. Array
+2. Vector 
+3. Dequeue
+4. List
+
+Container Adaptors are
+1. Stack 
+2. Queue
+3. Priority Queue
+
+Associative containers are
+1. Set
+2. Map
+
+Unordered associative containers are
+1. Unordered set
+2. Unordered map
+

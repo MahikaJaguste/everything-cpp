@@ -1,0 +1,5 @@
+Binary search
+Upper/lower bound
+Min/max
+Reverse/rotate
+Sort/Swap
