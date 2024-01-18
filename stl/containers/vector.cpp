@@ -85,12 +85,22 @@ int main() {
     // to copy one vector to another
     vector<int> v2(v1);
 
+    // assign() assigns new values to the vector
+    v.assign(5, 10);
+
+    cout << "v.capacity after assign: " << v.capacity() << endl;
+
+    cout << "Printing till v.capacity after assign" << endl;
+    for(int i=0; i<v.capacity(); i++) {
+        cout << v[i] << endl;
+    }
+
+    // // erase() removes element at a particular position
+    // v.erase(v.end());
 
     // // insert() inserts element at a particular position
     // v.insert(v.begin(), 5);
 
-    // // erase() removes element at a particular position
-    // v.erase(v.end());
 
     // cout << "Printing till v.capacity after insert and erase" << endl;
     // for(int i=0; i<v.capacity(); i++) {
@@ -108,9 +118,6 @@ int main() {
 
     // cout << "Size: " << v.size() << endl;
     // cout << "Capacity: " << v.capacity() << endl;
-
-    // // assign() assigns new values to the vector
-    // v.assign(5, 10);
     
 
     return 0;

@@ -38,5 +38,24 @@ int main() {
     // Filling array with a value
     a.fill(10);
 
+    // Accessing elements
+    for(int i=0; i<size; i++) {
+        cout << a[i] << endl;
+    }
+
+
+    array<int, 4> b;
+
+    // Is array empty
+    cout << "Is array empty: " << b.empty() << endl;
+
+    for(int i=0; i<b.size(); i++) {
+        cout << b[i] << endl;
+    }
+
+    int size1 = sizeof(basic)/sizeof(basic[0]);
+    cout << "Size of array is " << size1 << endl;
+
+
     return 0;
 }
