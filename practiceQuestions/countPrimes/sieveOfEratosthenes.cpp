@@ -15,7 +15,7 @@ int countPrimes(int n) {
 
             // remove all multiples of the current prime number
             // we start from i because all multiples of i ie. i, 2i, 3i, ... (i-1)i would already have been cancelled
-            long factor = i;
+            int factor = i;
             while(i*factor<n) {
                 arr[i*factor] = 0;
                 factor++;
@@ -35,6 +35,7 @@ int main() {
     int n = 40;
     cout << "Count primes till 40 using Seive method = " << countPrimes(40) << endl;
     cout << "Count primes till 5 using Seive method = " << countPrimes(5) << endl;
+    cout << "Count primes till 5000000 using Seive method = " << countPrimes(5000000) << endl;
 
     return 0;
 }
