@@ -14,6 +14,9 @@ int main() {
     // dereference operator
     cout << "Value which is being pointed at by ptr = " << *ptr << endl;
 
+    // address of pointer
+    cout << "Address of ptr is " << &ptr << endl;
+
     cout << "Size of num = " << sizeof(num) << endl;
     cout << "Size of pointer = " << sizeof(ptr) << endl; // usually 8-byte addresses in most systems
     // this size is irrespective of the data type being pointed to by the pointer as the size of address is same
@@ -25,6 +28,8 @@ int main() {
     cout << "Size of pointer = " << sizeof(p2) << endl; // still 8 only
 
     int *p = 0;
+    p = NULL; // it is a constant with value 0
+    cout << "Value at p = " << p << endl;
     // cout << *p << endl; 
     // the above line gives seg fault as we made a pointer to memory address 0 which is equivalent to null 
     // and then trying to deference a pointer to a null memory location which does not exist
