@@ -60,6 +60,74 @@ int partition(vector<int> &arr, int start, int end) {
     return pivotIndex;
 }
 
+int partitionRandomPivot(vector<int> &arr, int start, int end) {
+    int pivotOriginalIndex = start + (rand() % (end-start+1));
+    int pivotValue = arr[pivotOriginalIndex];
+    int pivotIndex = start;
+    for(int k=start;k<=end;k++) {
+        if(k==pivotOriginalIndex) continue;
+        if(arr[k]<=pivotValue) {
+            pivotIndex++;
+        }
+    }
+    swap(arr[pivotOriginalIndex], arr[pivotIndex]);
+
+    int i = start, j = end;
+    while(i<pivotIndex){
+        // if number on the left is large than pivot, swap
+        // and inspect the swapped number
+        if(arr[i]>pivotValue) {
+            swap(arr[i],arr[j]);
+            j--;
+        }
+        else {
+            // move to the next element
+            i++;
+        }
+    }
+    return pivotIndex;
+}
+
+int getMedianPivotIndex(vector<int> &arr, int start, int end) {
+    int mid = start + (end-start)/2;
+    int maxIndex = arr[start] > arr[end] ? start : end;
+    if(arr[maxIndex]>arr[mid]) { // lets say m is end, then either mid,start,end  OR start,mid,end
+        int mini = arr[start] <= arr[end] ? start : end;
+        return arr[mid] > arr[mini] ? mid : mini;
+    }
+    return maxIndex;
+}
+
+int partitionMedianOfThree(vector<int> &arr, int start, int end) {
+    int pivotOriginalIndex = getMedianPivotIndex(arr, start, end);
+    int pivotValue = arr[pivotOriginalIndex];
+    int pivotIndex = start;
+    for(int k=start;k<=end;k++) {
+        if(k==pivotOriginalIndex) continue;
+        if(arr[k]<=pivotValue) {
+            pivotIndex++;
+        }
+    }
+    swap(arr[pivotOriginalIndex], arr[pivotIndex]);
+
+    int i = start, j = end;
+    while(i<pivotIndex){
+        // if number on the left is large than pivot, swap
+        // and inspect the swapped number
+        if(arr[i]>pivotValue) {
+            swap(arr[i],arr[j]);
+            j--;
+        }
+        else {
+            // move to the next element
+            i++;
+        }
+    }
+    return pivotIndex;
+}
+
+
+
 void quickSort(vector<int> &arr, int start, int end) {
 
     // base case
@@ -68,9 +136,11 @@ void quickSort(vector<int> &arr, int start, int end) {
     }
 
     // partition the array
-    int pivot = partition(arr, start, end);
+    // int pivot = partition(arr, start, end);
     // int pivot = partitionOneTraverse(arr, start, end);
-    
+    // int pivot = partitionRandomPivot(arr, start, end);
+    int pivot = partitionMedianOfThree(arr, start, end);
+
     // one pass complete
     // now recurse on both partitions
     quickSort(arr, start, pivot-1);
@@ -87,9 +157,10 @@ int main() {
         cin >> x;
         arr.push_back(x);
     }
-
+    
     printArray(arr, n);
     quickSort(arr, 0, n-1);
     printArray(arr, n);
+    
 
 }
