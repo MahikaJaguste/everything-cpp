@@ -9,7 +9,22 @@ class Hero {
     public:
     char level;
 
+    Hero() {
+        cout << "Constructor called" << endl;
+    }
+
+    Hero(int health) {
+        this->health = health;
+        // OR (*this).health = health;
+    }
+
+    Hero(Hero &temp) {
+        this -> health = temp.health;
+        this -> level = temp.level;
+    }
+
     int getHealth() {
+        cout << "this = " << this << endl;
         return health;
     }
 
@@ -25,7 +40,8 @@ class Hero {
         level = l;
     }
 
-    void printLevel() {
+    void print() {
+        cout << "Health is = " << health << endl;
         cout << "Level is = " << level << endl;
     }
 };
