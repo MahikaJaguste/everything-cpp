@@ -69,6 +69,48 @@ class DoublyLinkedList {
         temp->next = n;
     }
 
+    void deleteAt(int index) {
+        if(this->head == nullptr) {
+            cout << "Linked list is already empty." << endl;
+            return;
+        }
+
+        // delete at head
+        if(index == 0) {
+            Node* temp = this->head;
+            if(this->head->next != nullptr) {
+                this->head->next->prev = nullptr;
+            }
+            this->head = this->head->next;
+            delete temp;
+            return;
+        }
+
+        Node* temp = this->head;        
+        int count = 1;
+        while(temp->next != nullptr && count < index) {
+            temp = temp->next;
+            count++;
+        }
+
+        if(count != index) {
+            cout << "Invalid deletion index." << endl;
+            return;
+        }
+
+        if(temp->next->next == nullptr) { // delete at tail
+            delete temp->next;
+            temp->next = nullptr;
+            return;
+        }
+
+        temp->next->next->prev = temp;
+        Node* t = temp->next;
+        temp->next = temp->next->next;
+        delete t;
+    }
+    
+    
     int getLength() {
         Node* n = head;
         int count = 0;
@@ -81,6 +123,10 @@ class DoublyLinkedList {
 
     void print() {
         Node* n = head;
+        if(n == nullptr) {
+            cout << "Nothing to print." << endl;
+            return;
+        }
         while(n != nullptr) {
             cout << n->data << " ";
             n = n->next;
@@ -91,6 +137,7 @@ class DoublyLinkedList {
     void printBackward() {
         Node* n = head;
         if(n == nullptr) {
+            cout << "Nothing to print." << endl;
             return;
         }
         while(n->next != nullptr) {

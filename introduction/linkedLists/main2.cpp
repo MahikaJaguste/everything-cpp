@@ -17,9 +17,39 @@ int main() {
     ll->insertAt(15,4);
 
     ll->insertAt(15,3);
+    ll->printBackward();
 
+    ll->insertAt(20,4);
     ll->printBackward();
     ll->print();
+
+    cout << "Length = " << ll->getLength() << endl;
+
+    ll->deleteAt(2);
+    ll->printBackward();
+    ll->print();
+
+    ll->deleteAt(5);
+
+    ll->deleteAt(0);
+    ll->printBackward();
+    ll->print();
+
+    ll->deleteAt(2);
+    ll->printBackward();
+    ll->print();
+
+    ll->deleteAt(0);
+    ll->printBackward();
+    ll->print();
+
+    ll->deleteAt(2);
+
+    ll->deleteAt(0);
+    ll->printBackward();
+    ll->print();
+
+    ll->deleteAt(4);
 
     cout << "Length = " << ll->getLength() << endl;
 
