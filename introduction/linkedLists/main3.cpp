@@ -72,5 +72,17 @@ int main() {
 
     cout << "Length = " << ll->getLength() << endl;
 
+    ll->insertAt(20, 1);
+
+    ll->insertAt(20, 0);
+    ll->printBackward();
+    ll->print();
+
+    ll->insertAt(15, 0);
+    ll->printBackward();
+    ll->print();
+
+    cout << "Length = " << ll->getLength() << endl;
+
     return 0;
 }

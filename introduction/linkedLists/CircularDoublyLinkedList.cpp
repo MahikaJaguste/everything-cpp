@@ -35,6 +35,14 @@ class CircularDoublyLinkedList {
         if(index == 0) {
             // insert at head
             Node* n = new Node(data);
+
+            if(this->head == nullptr) {
+                this->head = n;
+                n->next = n;
+                n->prev = n;
+                return;
+            }
+            
             n->next = this->head;
             n->prev = this->head->prev;
             this->head->prev->next = n;
