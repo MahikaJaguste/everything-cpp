@@ -79,4 +79,31 @@ class Heap {
         }
     }
 
+    void heapify(int* arr, int size) {
+        for(int i = size/2; i>0; i--) {
+            int index = i;
+            while(index*2 <= size) {
+                if(index*2 + 1 <= size) {
+                    if(arr[index] > max(arr[index*2], arr[index*2+1])) break;
+                    if(arr[2*index] > arr[2*index+1]) {
+                        swap(arr[index], arr[2*index]);
+                        index = 2*index;
+                    }
+                    else {
+                        swap(arr[index], arr[2*index+1]);
+                        index = 2*index + 1;
+                    }   
+                }
+                else {
+                    if(arr[index] > arr[2*index]) {
+                        swap(arr[index], arr[2*index]);
+                        index = 2*index;
+                        continue;
+                    }
+                    break;
+                }
+            }
+        }
+    }
+
 };
