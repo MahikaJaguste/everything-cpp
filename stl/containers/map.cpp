@@ -44,6 +44,10 @@ int main() {
         cout << (*iter).first << ":" << (*iter).second << endl;
     }
 
+    // cout << m.at(100) << endl; // throws error key out of range
+    cout << m[100] << endl; // creates an entry for this key with value as default value ("")
+    cout << m.at(100) << endl; // returns the above created entry's default value
+
     
     return 0;
 
